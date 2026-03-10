@@ -1,18 +1,23 @@
 {
   "name": "xxvii-introduccion-htmx",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Desarrollo Web moderno con HTML5, CSS3 y JavaScript 2026.",
+  "author": "Mtro. Eric A. Rodríguez Sánchez",
+  "main": "server.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/earodriguezs/render2web-desarrollo-web-moderno.git"
+  },
+  "homepage": "https://github.com/earodriguezs/render2web-desarrollo-web-moderno#readme",
+  "bugs": {
+    "url": "https://github.com/earodriguezs/render2web-desarrollo-web-moderno/issues"
+  },
+  "license": "MIT",
   "keywords": [
     "htmx"
-  ],
-  "author": "Mtro. Eric A. Rodríguez Sánchez <eazicomservicios@gmail.com>",
-  "license": "MIT",
-  "type": "commonjs",
-  "repository": {
-    "url": "https://github.com/earodriguezs/render2web-desarrollo-web-moderno/xxvii-introduccion-htmx"
-  }
+  ]
 }
