@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    // Environment Settings
+    "module": "nodenext",
+    "target": "esnext",
+    "types": ["node", "express"],
+
+    // File Layout
+    "rootDir": "./src",
+    "outDir": "./dist",
+
+    // Other Outputs
+    "removeComments": true,
+
+    // Stricter Typechecking Options
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+
+    // Recommended Options
+    "strict": true,
+    "jsx": "react-jsx",
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+    "noUncheckedSideEffectImports": true,
+    "moduleDetection": "force",
+    "skipLibCheck": true
+  },
+  // Include and Exclude
+  "include": ["./src"],
+  "exclude": ["./.vscode", "./dist", "./node_modules", "./public"]
+}
