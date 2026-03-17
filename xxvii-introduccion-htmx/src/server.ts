@@ -1,11 +1,13 @@
 /**
  * Desarrollo Web moderno con HTML5, CSS3 y JavaScript 2026.
+ * Sección 27: Introducción completa a HTMX.
  * @author Eric Adalberto Rodríguez Sánchez <eazicomservicios@gmail.com>
  * @license MIT
  */
 
 import Express, { type Application, type Router } from "express";
 import { engine } from 'express-handlebars';
+import { type IServerConfig } from "./config/env.config.js";
 
 export default class Server {
     /**
@@ -25,8 +27,9 @@ export default class Server {
             partialsDir: "./views/partials/"
         } ) );
         this._app.set( "view engine", "handlebars" );
-        this._app.set( "views", "./views/" ); 
+        this._app.set( "views", "./views/" );
         this._app.use( "/", Express.static( "./public/" ) );
+        this._app.use("/css", Express.static("./node_modules/bootstrap/dist/css/"));
         this._app.use( "/js", Express.static( "./node_modules/htmx/" ) );
     }
 
@@ -47,15 +50,15 @@ export default class Server {
      * @param host Nombre del host.
      * @returns void
      */
-    public start( port: number, host: string ): void {
+    public start( config: IServerConfig ): void {
         let message: string = '';
-        this._app.listen( port, host, () => {
-            if ( "localhost" === host ||
-                "127.0.0.1" === host ||
-                host.startsWith( "192." ) )
+        this._app.listen( config.port, config.domain, () => {
+            if ( "localhost" === config.domain ||
+                "127.0.0.1" === config.domain ||
+                config.domain.startsWith( "192." ) )
                 
-                message = `Servidor local en línea: http://${host}` +
-                    `${port !== 80 ? `:${port}` : ""}`;
+                message = `Servidor local en línea: http://${config.domain}` +
+                    `${config.port !== 80 ? `:${config.port}` : ""}/`;
             else
                 message = "Servidor en producción...";
             
