@@ -5,8 +5,8 @@
   "type": "module",
   "main": "server.js",
   "scripts": {
-    "prestart": "tsc",
-    "start": "node ./dist/bin/www.js"
+    "build": "tsc --watch",
+    "start": "node --watch ./dist/bin/www.js"
   },
   "homepage": "https://github.com/earodriguezs/xxvii-introduccion-htmx#readme",
   "repository": {

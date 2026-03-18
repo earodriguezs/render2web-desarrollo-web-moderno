@@ -8,23 +8,25 @@ import Path from "path";
  * Provee las funciones necesarias para configurar e iniciar el
  * servidor de Express.
  */
-export default class App {
+export default class WebApp {
     /**
      * Instancia a la aplicación de {@link Express}.
      */
     private app: Application = Express();
 
     /**
-     * @description Crea una nueva instancia de la clase {@link App}.
+     * Crea una nueva instancia de la clase {@link WebApp}.
+     * @param {Array<Router>} modules - EL arreglo de rutas para la aplicación.
+     * @returns {WebApp} Una nueva instancia de la clase {@link WebApp}.
      */
-    constructor() {
-        this.config();
+    constructor( modules: Array<Router> ) {
+        this.config( modules );
     }
 
     /**
      * Realiza la configuración del servidor.
      */
-    private config = (): void => {
+    private config = ( modules: Array<Router> ): void => {
         const DIRNAME: string = import.meta.dirname.replace( '\\dist', '' );
         this.app.engine(
             "handlebars",
@@ -44,19 +46,24 @@ export default class App {
         this.app.use( "/", Express.static( "./public/" ) );
         this.app.use( "/css", Express.static( "./node_modules/bootstrap/dist/css/" ) );
         this.app.use( "/js", Express.static( "./node_modules/bootstrap/dist/js/" ) );
+
+        this.addRouters( modules );
     };
 
     /**
      * Agrega la configuración de rutas para un recurso especificado.
      * @param {Router} routers
+     * @returns {void} Este método no retorna ningún valor.
      */
-    public addRouters( routers: Array<Router> ): void {
-        routers.forEach( ( router: Router ) => this.app.use( router ) );
+    private addRouters( routers: Array<Router> ): void {
+        if ( routers.length > 0 )
+            routers.forEach( ( router: Router ) => this.app.use( router ) );
     }
 
     /**
      * Inicia el servidor de Express en el puerto especificado.
      * @param {number} port Puerto en el que se iniciará el servidor.
+     * @param {string} domain Dominio o dirección IP en la que se iniciará el servidor.
      * @returns {void} Este método no retorna ningún valor.
      */
     public start( domain: string, port: number ): void {
@@ -66,7 +73,6 @@ export default class App {
                 message = `Error al iniciar el servidor: ${error.message}`;
             } else if ( "localhost" === domain ||
                 "127.0.0.1" === domain ||
-                "::1" === domain ||
                 domain.startsWith( "192.168." ) ) {
                 message = `Servidor local en línea: `
                     + `http://${domain}${port !== 80 ? `:${port}` : ''}/`;
