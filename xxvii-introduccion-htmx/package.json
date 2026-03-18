@@ -2,32 +2,34 @@
   "name": "xxvii-introduccion-htmx",
   "version": "1.0.0",
   "description": "Desarrollo Web moderno con HTML5, CSS3 y JavaScript 2026.",
-  "author": "Eric Adalberto Rodríguez Sánchez",
-  "main": "server.js",
   "type": "module",
+  "main": "server.js",
   "scripts": {
-    "start": "tsc && node dist/bin/wwww.js"
+    "prestart": "tsc",
+    "start": "node ./dist/bin/www.js"
   },
+  "homepage": "https://github.com/earodriguezs/xxvii-introduccion-htmx#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/earodriguezs/render2web-desarrollo-web-moderno.git"
+    "url": "git+https://github.com/earodriguezs/xxvii-introduccion-htmx.git"
   },
-  "homepage": "https://github.com/earodriguezs/render2web-desarrollo-web-moderno#readme",
   "bugs": {
-    "url": "https://github.com/earodriguezs/render2web-desarrollo-web-moderno/issues"
+    "url": "https://github.com/earodriguezs/xxvii-introduccion-htmx/issues"
   },
-  "license": "MIT",
   "keywords": [
     "htmx"
   ],
+  "author": "Eric Adalberto Rodríguez Sánchez",
+  "license": "MIT",
   "devDependencies": {
+    "@types/compression": "^1.8.1",
     "@types/express": "^5.0.6"
   },
   "dependencies": {
     "bootstrap": "^5.3.8",
+    "compression": "^1.8.1",
     "dotenv": "^17.3.1",
     "express": "^5.2.1",
-    "express-handlebars": "^8.0.6",
-    "htmx": "^0.0.2"
+    "express-handlebars": "^8.0.6"
   }
 }

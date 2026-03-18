@@ -1,16 +1,17 @@
 {
   "compilerOptions": {
+    // File Layout
+    "rootDir": "./src",
+    "outDir": "dist",
+
     // Environment Settings
     "module": "nodenext",
     "target": "esnext",
-    "types": ["node", "express"],
-
-    // File Layout
-    "rootDir": "./src",
-    "outDir": "./dist",
-
-    // Other Outputs
-    "removeComments": true,
+    "types": [
+        "node",
+        "express",
+        "compression"
+    ],
 
     // Stricter Typechecking Options
     "noUncheckedIndexedAccess": true,
@@ -23,9 +24,15 @@
     "isolatedModules": true,
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "removeComments": true
   },
-  // Include and Exclude
   "include": ["./src"],
-  "exclude": ["./.vscode", "./dist", "./node_modules", "./public"]
+  "exclude": [
+    "./.vscode", 
+    "./dist",
+    "./node_modules",
+    "./public",
+    "./views"
+  ]
 }
