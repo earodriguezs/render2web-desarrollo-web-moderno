@@ -4,7 +4,7 @@
  */
 
 import WebApp from "../app.js";
-import Enviroment from "../modules/core/enviroment.config.js";
+import { WEB_CONFIG } from "../modules/core/web.config.js";
 import ROUTERS from "../routers/router.js";
 
 /**
@@ -12,4 +12,4 @@ import ROUTERS from "../routers/router.js";
  * @type {WebApp}
  */
 const WEB_APP: WebApp = new WebApp( ROUTERS );
-WEB_APP.start( Enviroment.domain, Enviroment.port );
+WEB_APP.start( WEB_CONFIG.domain, WEB_CONFIG.port );

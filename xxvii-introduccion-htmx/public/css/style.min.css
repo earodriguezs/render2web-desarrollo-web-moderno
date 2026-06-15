@@ -1,5 +1,21 @@
-@charset 'UTF-8';/*!
+@charset 'UTF-8'; /*!
  * Copyright (c) 2025 - Eazicom Servicios Profesionales
  * Todos los derechos reservados.
- */.nav-link{color:white}.nav-link:hover{color:yellow}.nav-pills .nav-link.active,.nav-pills.show>.nav-link {background-color:yellow;color:black}.border-bottom{border-bottom: 1px solid gainsboro!important;}
- 
+ */
+body {
+  background-color: whitesmoke;
+}
+.nav-link {
+  color: white;
+}
+.nav-link:hover {
+  color: yellow;
+}
+.nav-pills .nav-link.active,
+.nav-pills.show > .nav-link {
+  background-color: yellow;
+  color: black;
+}
+.border-bottom {
+  border-bottom: 1px solid gainsboro !important;
+}
