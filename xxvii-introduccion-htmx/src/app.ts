@@ -3,6 +3,7 @@ import type { Application, Router } from "express";
 import Express from "express";
 import { engine } from "express-handlebars";
 import Path from "path";
+import { Enviroment, WebConfig } from './modules/core/web.config.js';
 
 /**
  * Provee las funciones necesarias para configurar e iniciar el
@@ -73,24 +74,24 @@ export default class WebApp {
      * @param {string} domain Dominio o dirección IP en la que se iniciará el servidor.
      * @returns {void} Este método no retorna ningún valor.
      */
-    public start = ( domain: string, port: number ): void => {
-        this.app.listen( port, domain, ( error: Error | undefined ): void => {
-            let message: string = "";
-            if ( error ) {
-                message = `Error al iniciar el servidor: ${error.message}`;
-            } else if (
-                "localhost" === domain ||
-                "127.0.0.1" === domain ||
-                domain.startsWith( "192.168." )
-            ) {
-                message =
-                    `Servidor local en línea: ` +
-                    `http://${domain}${port !== 80 ? `:${port}` : ""}/`;
-            } else {
-                message = "Servidor en línea, en espera de solicitudes...";
-            }
-            console.clear();
-            console.log( message );
-        } );
+    public start = ( config: WebConfig ): void => {
+
+        this.app.listen( config.port, config.domain,
+
+            ( error: Error | undefined ): void => {
+                let message: string = "";
+                if ( error ) {
+                    message = `Error al iniciar el servidor: ${error.message}`;
+                } else if ( config.enviroment === Enviroment.development ) {
+                    message =
+                        `Servidor de desarrollo en línea: ` +
+                        `http://${config.domain}` +
+                        `${config.port !== 80 ? `:${config.port}` : "" }/`;
+                } else {
+                    message = "Servidor en línea...";
+                }
+                console.clear();
+                console.log( message );
+            } );
     };
 }

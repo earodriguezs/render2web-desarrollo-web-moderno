@@ -12,4 +12,4 @@ import ROUTERS from "../routers/router.js";
  * @type {WebApp}
  */
 const WEB_APP: WebApp = new WebApp( ROUTERS );
-WEB_APP.start( WEB_CONFIG.domain, WEB_CONFIG.port );
+WEB_APP.start( WEB_CONFIG );

@@ -16,7 +16,7 @@ export enum Enviroment {
  * @description Provee el acceso al valor establecido para las variables de
  * entorno en el archivo de configuración.
  */
-class WebConfig {
+export class WebConfig {
 
     //#region -- Definiciòn de propiedades --
 
