@@ -2,9 +2,6 @@
  * Copyright (c) 2025 - Eazicom Servicios Profesionales
  * Todos los derechos reservados.
  */
-body {
-  background-color: whitesmoke;
-}
 .nav-link {
   color: white;
 }
@@ -18,4 +15,11 @@ body {
 }
 .border-bottom {
   border-bottom: 1px solid gainsboro !important;
+}
+
+@media screen and (max-width: 768px) {
+  img {
+    width: 75px;
+    height: 30px;
+  }
 }

@@ -83,12 +83,11 @@ export default class WebApp {
                 if ( error ) {
                     message = `Error al iniciar el servidor: ${error.message}`;
                 } else if ( config.enviroment === Enviroment.development ) {
-                    message =
-                        `Servidor de desarrollo en línea: ` +
-                        `http://${config.domain}` +
-                        `${config.port !== 80 ? `:${config.port}` : "" }/`;
+                    message = `Servidor de desarrollo en línea: http://` +
+                        `${config.domain !== "" ? config.domain : "localhost"}` +
+                        `${config.port !== 80 ? `:${config.port}` : "" }/home`;
                 } else {
-                    message = "Servidor en línea...";
+                    message = "Servidor de producción en línea...";
                 }
                 console.clear();
                 console.log( message );
